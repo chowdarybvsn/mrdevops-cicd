@@ -1,7 +1,9 @@
+@Library('my-shared-library') _
+
 pipeline {
     agent any
     environment {     
-    DOCKERHUB_CREDENTIALS= credentials('dockerhub')     
+      DOCKERHUB_CREDENTIALS= credentials('dockerhub')     
     } 
     
     stages{
@@ -12,7 +14,7 @@ pipeline {
         }
         stage('build') {
             steps{
-               sh 'mvn clean install'
+                 build() 
             }
         }
         stage('static code analysis') {
